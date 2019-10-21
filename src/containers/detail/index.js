@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DetailsView = () => {
+const DetailsView = (props) => {
   
     return(
       <>

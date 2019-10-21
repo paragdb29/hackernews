@@ -15,15 +15,9 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-            <Route exact path="/">
-              <MainView/>
-            </Route>
-            <Route path="/detail/:id">
-              <DetailsView />
-            </Route>
-            <Route path="/chart">
-              <ChartView />
-            </Route>
+            <Route exact path="/" component={MainView}/>
+            <Route path="/detail/:id" component={DetailsView}/>
+            <Route path="/chart" component={ChartView}/>
           </Switch>
       </Router>
     </div>
