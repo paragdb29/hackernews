@@ -1,7 +1,11 @@
 .list{
-    display: flex;
-    flex-direction: column;
     li{        
         list-style:none;
+        display: inline-flex;
+        margin-right: 1rem;
+        margin-top: 1rem;
+    }
+    .card-body.card-title{
+        height: 6.5rem;
     }
 }
