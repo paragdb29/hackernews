@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding: 1rem 0 4rem;
 }
 
 .App-logo {
@@ -19,4 +20,10 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.back-btn{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
 }

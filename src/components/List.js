@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import {getDate} from '../utils/Utils'
 import './style.scss'
 
-const  getDate = (val) => {
-    return new Date(val).toDateString();
-}
+
 
 const List = ({stories}) => {
   

@@ -24,4 +24,11 @@ hackerNewApi.getTopStories = (ids, noOfStories) => {
     return Promise.all(results);
 }
 
+hackerNewApi.fetchSingleComment = id => client.get(`/item/${id}${endQuery}`);
+
+hackerNewApi.getTopComments = (commentIds) => {
+    const results = commentIds.map(id=>hackerNewApi.fetchSingleComment(id));
+    return Promise.all(results);
+}
+
 export default hackerNewApi;
