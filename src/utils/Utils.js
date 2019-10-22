@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const getDate = (val) => {
-    return new Date(val).toDateString();
+    return moment.unix(val).format("MMM Do YY");
 }

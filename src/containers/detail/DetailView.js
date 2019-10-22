@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Jumbotron } from 'react-bootstrap';
-import {getDate} from '../../utils/Utils'
+import { Jumbotron, Button } from 'react-bootstrap';
+import Comments from '../../components/Comments';
+import {getDate} from '../../utils/Utils';
+import './style.scss'
 
 class DetailsView extends Component {
   
@@ -19,19 +21,29 @@ class DetailsView extends Component {
         const storyDetails = this.props.location.state.storyDetails;
         const {comments} = this.props;
         return(
-            <>
-            <h1>{storyDetails.title}</h1> 
-            {comments.length > 0 ?
-                comments.map(comment =>{
-                    return(
-                        <Jumbotron>
-                            <h3>{comment.by}</h3>
-                            <div dangerouslySetInnerHTML={{__html: comment.text}}></div>
-                            <p>{getDate(comment.time)}</p>
-                        </Jumbotron>
-                    )})
-                
-            :null} 
+            <>      
+            {this.props.isFetching ?
+                <div className="loader">
+                    Loading story......
+                </div>:   
+                <>   
+                    <Jumbotron>
+                        <Button variant="info" onClick={()=>this.props.history.push("/")} className="back-btn">Back</Button>
+                        <h1>{storyDetails.title}</h1> 
+                        <div className="story-details">
+                            <span>Score - {storyDetails.score}</span>
+                            <span>Author - {storyDetails.by}</span>
+                            <span>{getDate(storyDetails.time)}</span>
+                            <span><Button variant="primary" href={storyDetails.url}>Go to story</Button></span>
+                        </div>
+                    </Jumbotron>
+                    
+                    {comments.length > 0 ?  
+                        <Comments comments={comments}/>                  
+                        :null
+                    } 
+                </>
+            }
             </>
         )
     }
